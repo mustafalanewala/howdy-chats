@@ -25,16 +25,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-* {
-  cursor: none;
-}
-
-@media (max-width: 768px) {
-  * {
-    cursor: auto;
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }

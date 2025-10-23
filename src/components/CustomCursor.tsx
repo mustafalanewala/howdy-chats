@@ -9,14 +9,41 @@ interface CustomCursorProps {
 export default function CustomCursor({ mousePosition }: CustomCursorProps) {
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [isOverVideo, setIsOverVideo] = useState(false);
   const animationFrameRef = useRef<number | null>(null);
+  const currentPosition = useRef({ x: 0, y: 0 });
+  const targetPosition = useRef({ x: 0, y: 0 });
+  const rotation = useRef(0);
 
   useEffect(() => {
     const updateCursor = () => {
       if (cursorRef.current) {
+        // Smooth interpolation for natural movement
+        const lerp = (start: number, end: number, factor: number) => {
+          return start + (end - start) * factor;
+        };
+
+        currentPosition.current.x = lerp(
+          currentPosition.current.x,
+          targetPosition.current.x,
+          0.15
+        );
+        currentPosition.current.y = lerp(
+          currentPosition.current.y,
+          targetPosition.current.y,
+          0.15
+        );
+
+        // Add subtle rotation based on movement
+        const dx = targetPosition.current.x - currentPosition.current.x;
+        const dy = targetPosition.current.y - currentPosition.current.y;
+        rotation.current += (dx + dy) * 0.02;
+
         cursorRef.current.style.transform = `translate3d(${
-          mousePosition.x - 10
-        }px, ${mousePosition.y - 10}px, 0)`;
+          currentPosition.current.x - (isHovering ? 8 : 4)
+        }px, ${currentPosition.current.y - (isHovering ? 8 : 4)}px, 0) rotate(${
+          rotation.current
+        }deg) scale(${isHovering ? 1.2 : 1})`;
       }
       animationFrameRef.current = requestAnimationFrame(updateCursor);
     };
@@ -28,22 +55,34 @@ export default function CustomCursor({ mousePosition }: CustomCursorProps) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
+  }, [isHovering]);
+
+  useEffect(() => {
+    targetPosition.current = mousePosition;
   }, [mousePosition]);
 
   useEffect(() => {
     const handleMouseEnter = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (
+      if (target.tagName === "VIDEO") {
+        setIsOverVideo(true);
+        setIsHovering(false);
+      } else if (
         target.tagName === "A" ||
         target.tagName === "BUTTON" ||
         target.classList.contains("hover-target")
       ) {
         setIsHovering(true);
+        setIsOverVideo(false);
+      } else {
+        setIsHovering(false);
+        setIsOverVideo(false);
       }
     };
 
     const handleMouseLeave = () => {
       setIsHovering(false);
+      setIsOverVideo(false);
     };
 
     // Use mouseenter/mouseleave for better performance
@@ -58,17 +97,24 @@ export default function CustomCursor({ mousePosition }: CustomCursorProps) {
 
   return (
     <>
-      <div
-        ref={cursorRef}
-        className="fixed pointer-events-none z-50 mix-blend-difference hidden md:block will-change-transform"
-        style={{
-          width: isHovering ? "60px" : "20px",
-          height: isHovering ? "60px" : "20px",
-          transition: "width 0.15s ease-out, height 0.15s ease-out",
-        }}
-      >
-        <div className="w-full h-full rounded-full border-2 border-[#57bb5b] transition-opacity duration-150" />
-      </div>
+      {!isOverVideo && (
+        <div
+          ref={cursorRef}
+          className="fixed top-0 left-0 pointer-events-none z-500 hidden md:block"
+          style={{
+            contain: "layout style size",
+            transition: "color 0.3s ease",
+            willChange: "transform",
+          }}
+        >
+          <div
+            className="w-3 h-3 rounded-full bg-[#57bb5b] transition-all duration-300 ease-out"
+            style={{
+              transformOrigin: "center",
+            }}
+          />
+        </div>
+      )}
     </>
   );
 }

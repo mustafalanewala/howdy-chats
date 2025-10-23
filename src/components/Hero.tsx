@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, MessageCircle, Mic, Heart, Star } from "lucide-react";
+import { gsap } from "gsap";
 
 export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
+  const [isVideoHovered, setIsVideoHovered] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -16,7 +17,6 @@ export default function Hero() {
   });
 
   const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
-  const videoOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const textY = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   useEffect(() => {
@@ -30,6 +30,28 @@ export default function Hero() {
       },
     });
   }, [controls]);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+
+    if (!videoElement) return;
+
+    const handleVideoMouseEnter = () => {
+      setIsVideoHovered(true);
+    };
+
+    const handleVideoMouseLeave = () => {
+      setIsVideoHovered(false);
+    };
+
+    videoElement.addEventListener("mouseenter", handleVideoMouseEnter);
+    videoElement.addEventListener("mouseleave", handleVideoMouseLeave);
+
+    return () => {
+      videoElement.removeEventListener("mouseenter", handleVideoMouseEnter);
+      videoElement.removeEventListener("mouseleave", handleVideoMouseLeave);
+    };
+  }, []);
 
   return (
     <section
@@ -77,9 +99,9 @@ export default function Hero() {
           >
             Say <span className="italic text-[#57bb5b]">howdy</span> to
             <br />
-            <span className="text-[#57bb5b] relative">authentic</span>
-            <br />
-            <span className="italic">conversations</span>
+            <span className="text-[#57bb5b] relative">
+              authentic conversations
+            </span>
           </motion.h1>
 
           <motion.p
@@ -98,8 +120,8 @@ export default function Hero() {
 
         {/* Video Section with Scroll Effects */}
         <motion.div
-          className="relative mx-auto max-w-5xl mb-16"
-          style={{ scale: videoScale, opacity: videoOpacity }}
+          className="relative mx-auto max-w-6xl mb-16"
+          style={{ scale: videoScale }}
         >
           <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
             <video
@@ -117,44 +139,6 @@ export default function Hero() {
               Your browser does not support the video tag.
             </video>
           </div>
-
-          {/* Video description */}
-          <motion.div
-            className="text-center mt-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-          >
-            <p className="text-gray-400 text-sm">
-              <span className="italic">Real voices,</span> genuine reactions,
-              and
-              <span className="italic"> conversations that matter</span>
-            </p>
-          </motion.div>
-        </motion.div>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#57bb5b] text-black px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-[#57bb5b]/25 transition-all duration-300"
-          >
-            Download Howdy App
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="border-2 border-[#57bb5b] text-[#57bb5b] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#57bb5b] hover:text-black transition-all duration-300"
-          >
-            Watch Demo
-          </motion.button>
         </motion.div>
       </div>
     </section>
