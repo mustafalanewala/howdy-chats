@@ -70,21 +70,21 @@ export default function Achievements() {
     >
       <div className="max-w-7xl mx-auto w-full">
         <h2 className="text-5xl md:text-7xl font-bold uppercase mb-16 text-center whitespace-nowrap">
-          Our <span className="text-[#e0fd60]">Impact</span>
+          Our <span className="text-[#57bb5b]">Impact</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div
               key={stat.label}
-              className={`text-center p-8 border border-gray-800 hover:border-[#e0fd60] transition-all duration-500 ${
+              className={`text-center p-8 border border-gray-800 hover:border-[#57bb5b] transition-all duration-500 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <stat.icon className="w-12 h-12 mx-auto mb-6 text-[#e0fd60]" />
+              <stat.icon className="w-12 h-12 mx-auto mb-6 text-[#57bb5b]" />
               <div className="text-5xl md:text-6xl font-bold mb-4">
                 {typeof counts[index] === "number" && counts[index] % 1 !== 0
                   ? counts[index].toFixed(1)

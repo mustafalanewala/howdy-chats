@@ -76,8 +76,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold cursor-pointer"
             >
-              <span className="text-white">Howdy</span>
-              <span className="text-[#e0fd60]">.</span>
+              <span className="text-white">Howdy Chats</span>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -89,10 +88,10 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
-                  className="relative text-white hover:text-[#e0fd60] transition-colors duration-300 font-medium group"
+                  className="relative text-white hover:text-[#57bb5b] transition-colors duration-300 font-medium group"
                 >
                   {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#e0fd60] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#57bb5b] transition-all duration-300 group-hover:w-full"></span>
                 </motion.a>
               ))}
 
@@ -102,7 +101,7 @@ export default function Navbar() {
                 transition={{ delay: 0.8 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#e0fd60] text-black px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-[#c8e545] transition-all duration-300 shadow-lg hover:shadow-[#e0fd60]/25"
+                className="bg-[#57bb5b] text-black px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-[#4a9e4c] transition-all duration-300 shadow-lg hover:shadow-[#57bb5b]/25"
               >
                 <Download size={18} />
                 Download App
@@ -114,7 +113,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="lg:hidden text-white hover:text-[#e0fd60] transition-colors"
+              className="lg:hidden text-white hover:text-[#57bb5b] transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -139,7 +138,7 @@ export default function Navbar() {
                       key={item.name}
                       href={item.href}
                       variants={itemVariants}
-                      className="text-white hover:text-[#e0fd60] transition-colors duration-300 font-medium text-lg"
+                      className="text-white hover:text-[#57bb5b] transition-colors duration-300 font-medium text-lg"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.name}
@@ -148,7 +147,7 @@ export default function Navbar() {
 
                   <motion.button
                     variants={itemVariants}
-                    className="bg-[#e0fd60] text-black px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-[#c8e545] transition-all duration-300 w-fit"
+                    className="bg-[#57bb5b] text-black px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-[#4a9e4c] transition-all duration-300 w-fit"
                   >
                     <Download size={18} />
                     Download App

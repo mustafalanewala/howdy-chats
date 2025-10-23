@@ -44,7 +44,7 @@ export default function Hero() {
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-[#e0fd60] rounded-full opacity-20"
+            className="absolute w-1 h-1 bg-[#57bb5b] rounded-full opacity-20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -75,9 +75,9 @@ export default function Hero() {
             className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase leading-tight mb-6"
             style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
           >
-            Say <span className="italic text-[#e0fd60]">howdy</span> to
+            Say <span className="italic text-[#57bb5b]">howdy</span> to
             <br />
-            <span className="text-[#e0fd60] relative">authentic</span>
+            <span className="text-[#57bb5b] relative">authentic</span>
             <br />
             <span className="italic">conversations</span>
           </motion.h1>
@@ -89,7 +89,7 @@ export default function Hero() {
             className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-8"
           >
             Where{" "}
-            <span className="italic text-[#e0fd60]">real expressions</span> meet
+            <span className="italic text-[#57bb5b]">real expressions</span> meet
             digital convenience. Voice messages, styled chats, and genuine
             connections -
             <span className="italic"> just like the good ol' days</span>
@@ -143,7 +143,7 @@ export default function Hero() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#e0fd60] text-black px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-[#e0fd60]/25 transition-all duration-300"
+            className="bg-[#57bb5b] text-black px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-[#57bb5b]/25 transition-all duration-300"
           >
             Download Howdy App
           </motion.button>
@@ -151,7 +151,7 @@ export default function Hero() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="border-2 border-[#e0fd60] text-[#e0fd60] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#e0fd60] hover:text-black transition-all duration-300"
+            className="border-2 border-[#57bb5b] text-[#57bb5b] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#57bb5b] hover:text-black transition-all duration-300"
           >
             Watch Demo
           </motion.button>

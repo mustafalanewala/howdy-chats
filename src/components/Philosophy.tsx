@@ -28,7 +28,7 @@ export default function Philosophy() {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen py-20 px-6 bg-[#e0fd60] text-black"
+      className="min-h-screen py-20 px-6 bg-[#57bb5b] text-black"
     >
       <div className="max-w-7xl mx-auto flex flex-col justify-center h-full">
         <h2

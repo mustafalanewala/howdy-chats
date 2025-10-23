@@ -39,7 +39,7 @@ const features = [
     description:
       "Revolutionize your messaging experience with style and security",
     image: "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg",
-    color: "#e0fd60",
+    color: "#57bb5b",
     items: [
       {
         icon: MessageCircle,
@@ -272,7 +272,7 @@ export default function FeaturesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Super <span className="text-[#e0fd60]">Features</span>
+            Super <span className="text-[#57bb5b]">Features</span>
           </motion.h2>
           <motion.p
             className="text-lg text-gray-400 max-w-2xl mx-auto"
@@ -451,7 +451,7 @@ export default function FeaturesSection() {
             <button
               onClick={prevFeature}
               disabled={isTransitioning}
-              className={`p-2 rounded-full border border-gray-700 hover:border-[#e0fd60] transition-colors ${
+              className={`p-2 rounded-full border border-gray-700 hover:border-[#57bb5b] transition-colors ${
                 isTransitioning ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
@@ -467,7 +467,7 @@ export default function FeaturesSection() {
                   disabled={isTransitioning}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     index === currentFeature
-                      ? "bg-[#e0fd60] scale-125"
+                      ? "bg-[#57bb5b] scale-125"
                       : "bg-gray-600 hover:bg-gray-500"
                   } ${isTransitioning ? "opacity-50 cursor-not-allowed" : ""}`}
                 />
@@ -477,7 +477,7 @@ export default function FeaturesSection() {
             <button
               onClick={nextFeature}
               disabled={isTransitioning}
-              className={`p-2 rounded-full border border-gray-700 hover:border-[#e0fd60] transition-colors ${
+              className={`p-2 rounded-full border border-gray-700 hover:border-[#57bb5b] transition-colors ${
                 isTransitioning ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
@@ -488,7 +488,7 @@ export default function FeaturesSection() {
           {/* Progress Bar */}
           <div className="mt-4 h-1 bg-gray-800 rounded-full overflow-hidden">
             <motion.div
-              className="h-full bg-[#e0fd60] rounded-full"
+              className="h-full bg-[#57bb5b] rounded-full"
               initial={{ width: "0%" }}
               animate={{
                 width: `${((currentFeature + 1) / features.length) * 100}%`,

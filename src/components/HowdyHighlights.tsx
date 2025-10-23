@@ -85,7 +85,7 @@ export default function Projects() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
-                <div className="absolute top-6 right-6 w-12 h-12 bg-[#e0fd60] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
+                <div className="absolute top-6 right-6 w-12 h-12 bg-[#57bb5b] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
                   <ArrowUpRight className="w-6 h-6 text-black" />
                 </div>
               </div>
