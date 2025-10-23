@@ -22,9 +22,6 @@ import {
   MapPin,
   Lightbulb,
   Rocket,
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 
 if (typeof window !== "undefined") {
@@ -225,28 +222,6 @@ export default function FeaturesSection() {
     }
   }, [currentFeature]);
 
-  const nextFeature = () => {
-    if (isTransitioning) return;
-    setIsAutoPlaying(false);
-    setIsTransitioning(true);
-    setCurrentFeature((prev) => (prev + 1) % features.length);
-    setTimeout(() => {
-      setIsTransitioning(false);
-      setIsAutoPlaying(true);
-    }, 1200);
-  };
-
-  const prevFeature = () => {
-    if (isTransitioning) return;
-    setIsAutoPlaying(false);
-    setIsTransitioning(true);
-    setCurrentFeature((prev) => (prev - 1 + features.length) % features.length);
-    setTimeout(() => {
-      setIsTransitioning(false);
-      setIsAutoPlaying(true);
-    }, 1200);
-  };
-
   const goToFeature = (index: number) => {
     if (isTransitioning || index === currentFeature) return;
     setIsAutoPlaying(false);
@@ -261,13 +236,13 @@ export default function FeaturesSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 px-4 sm:px-6 lg:px-8 bg-black relative"
+      className="py-16 px-4 sm:px-6 lg:px-8 bg-white relative"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
           <motion.h2
-            className="features-title text-4xl md:text-6xl font-bold uppercase mb-4"
+            className="features-title text-4xl md:text-6xl font-bold uppercase mb-4 text-black"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -275,7 +250,7 @@ export default function FeaturesSection() {
             Super <span className="text-[#57bb5b]">Features</span>
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-400 max-w-2xl mx-auto"
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -308,19 +283,10 @@ export default function FeaturesSection() {
                     {/* Content Side */}
                     <div className="space-y-6">
                       <div>
-                        <motion.div
-                          className="inline-block px-3 py-1 rounded-full border text-xs text-gray-400 mb-3"
-                          style={{ borderColor: feature.color }}
-                        >
-                          {feature.id}/{features.length}
-                        </motion.div>
-                        <h3 className="text-3xl md:text-4xl font-bold mb-3">
+                        <h3 className="text-3xl md:text-4xl font-bold mb-3 text-black">
                           {feature.title}
                         </h3>
-                        <h4 className="text-lg text-gray-400 mb-4">
-                          {feature.subtitle}
-                        </h4>
-                        <p className="text-gray-300 mb-6">
+                        <p className="text-gray-700 mb-6">
                           {feature.description}
                         </p>
                       </div>
@@ -341,7 +307,7 @@ export default function FeaturesSection() {
                                 borderColor:
                                   currentFeature === index
                                     ? feature.color
-                                    : "#374151",
+                                    : "#d1d5db",
                                 backgroundColor:
                                   currentFeature === index
                                     ? `${feature.color}10`
@@ -366,10 +332,10 @@ export default function FeaturesSection() {
                                   />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <h5 className="font-semibold text-white text-sm mb-1 truncate">
+                                  <h5 className="font-semibold text-black text-sm mb-1 truncate">
                                     {item.title}
                                   </h5>
-                                  <p className="text-xs text-gray-400 leading-relaxed">
+                                  <p className="text-xs text-gray-600 leading-relaxed">
                                     {item.desc}
                                   </p>
                                 </div>
@@ -378,22 +344,6 @@ export default function FeaturesSection() {
                           </motion.div>
                         ))}
                       </div>
-
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="group flex items-center gap-2 px-6 py-3 rounded-full border-2 font-semibold transition-all duration-300 hover:bg-white hover:text-black text-sm"
-                        style={{
-                          borderColor: feature.color,
-                          color: feature.color,
-                        }}
-                      >
-                        Explore {feature.title}
-                        <ArrowRight
-                          size={16}
-                          className="group-hover:translate-x-1 transition-transform"
-                        />
-                      </motion.button>
                     </div>
 
                     {/* Image Side */}
@@ -447,17 +397,7 @@ export default function FeaturesSection() {
           </div>
 
           {/* Navigation Controls */}
-          <div className="flex justify-between items-center mt-6">
-            <button
-              onClick={prevFeature}
-              disabled={isTransitioning}
-              className={`p-2 rounded-full border border-gray-700 hover:border-[#57bb5b] transition-colors ${
-                isTransitioning ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-            >
-              <ChevronLeft size={20} />
-            </button>
-
+          <div className="flex justify-center items-center mt-6">
             {/* Dots Indicator */}
             <div className="flex gap-2">
               {features.map((_, index) => (
@@ -465,36 +405,14 @@ export default function FeaturesSection() {
                   key={index}
                   onClick={() => goToFeature(index)}
                   disabled={isTransitioning}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentFeature
                       ? "bg-[#57bb5b] scale-125"
-                      : "bg-gray-600 hover:bg-gray-500"
+                      : "bg-gray-300 hover:bg-gray-400"
                   } ${isTransitioning ? "opacity-50 cursor-not-allowed" : ""}`}
                 />
               ))}
             </div>
-
-            <button
-              onClick={nextFeature}
-              disabled={isTransitioning}
-              className={`p-2 rounded-full border border-gray-700 hover:border-[#57bb5b] transition-colors ${
-                isTransitioning ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-
-          {/* Progress Bar */}
-          <div className="mt-4 h-1 bg-gray-800 rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-[#57bb5b] rounded-full"
-              initial={{ width: "0%" }}
-              animate={{
-                width: `${((currentFeature + 1) / features.length) * 100}%`,
-              }}
-              transition={{ duration: 0.5 }}
-            />
           </div>
         </div>
       </div>

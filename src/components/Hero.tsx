@@ -37,7 +37,7 @@ export default function Hero() {
       className="min-h-screen flex flex-col justify-center items-center relative px-6 py-20 overflow-hidden"
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-linear-to-br from-black via-gray-900 to-black"></div>
+      <div className="absolute inset-0 bg-black"></div>
 
       {/* Animated background particles */}
       <div className="absolute inset-0">

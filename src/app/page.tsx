@@ -22,6 +22,14 @@ export default function Home() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  useEffect(() => {
+    // Enable smooth scrolling for the entire page
+    document.documentElement.style.scrollBehavior = "smooth";
+    return () => {
+      document.documentElement.style.scrollBehavior = "auto";
+    };
+  }, []);
+
   return (
     <div className="bg-black text-white overflow-x-hidden">
       <CustomCursor mousePosition={mousePosition} />
