@@ -16,14 +16,12 @@ export default function AboutHowdy() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Spline 3D Animation */}
-            <div className="relative w-80 h-80 mx-auto rounded-2xl overflow-hidden">
-              <iframe
-                src="https://my.spline.design/blobs-LMZLsMBVdZEv6LaTpCfQ1zpI/"
-                frameBorder="0"
-                width="100%"
-                height="100%"
-                className="rounded-2xl"
+            {/* Infinite GIF Animation */}
+            <div className="relative w-96 h-96 mx-auto rounded-2xl overflow-hidden">
+              <img
+                src="/about.gif"
+                alt="Animated blobs"
+                className="w-full h-full object-cover rounded-2xl"
               />
             </div>
           </motion.div>

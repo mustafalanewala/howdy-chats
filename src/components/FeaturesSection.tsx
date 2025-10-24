@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -60,27 +59,78 @@ export default function FeaturesSection() {
     const ctx = gsap.context(() => {
       // Main section animation
       gsap.from(".features-title", {
-        y: 60,
+        y: 50,
         opacity: 0,
-        duration: 1,
-        ease: "power3.out",
+        duration: 0.8,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%",
+          start: "top 85%",
+        },
+      });
+
+      gsap.from(".features-subtitle", {
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".features-subtitle",
+          start: "top 90%",
         },
       });
 
       // Stagger animation for feature items
       gsap.from(".feature-item", {
-        y: 30,
+        y: 40,
         opacity: 0,
-        duration: 0.6,
-        stagger: 0.08,
+        duration: 0.5,
+        stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".feature-grid",
           start: "top 80%",
         },
+      });
+
+      // Feature text animations
+      gsap.from(".feature-text", {
+        y: 20,
+        opacity: 0,
+        duration: 0.4,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".feature-text",
+          start: "top 85%",
+        },
+      });
+
+      // Parallax effect for images
+      gsap.utils.toArray(".feature-image").forEach((image: any) => {
+        gsap.fromTo(
+          image,
+          { y: 0 },
+          {
+            y: -50,
+            ease: "none",
+            scrollTrigger: {
+              trigger: image,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
+            },
+          }
+        );
+      });
+
+      // Hover effects for images
+      gsap.utils.toArray(".feature-image").forEach((image: any) => {
+        const tl = gsap.timeline({ paused: true });
+        tl.to(image, { scale: 1.03, duration: 0.3, ease: "power2.out" });
+
+        image.addEventListener("mouseenter", () => tl.play());
+        image.addEventListener("mouseleave", () => tl.reverse());
       });
     }, sectionRef);
 
@@ -95,81 +145,23 @@ export default function FeaturesSection() {
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <motion.h2
-            className="features-title text-4xl md:text-6xl font-bold uppercase mb-4 text-black"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <h2 className="features-title text-4xl md:text-6xl font-bold uppercase mb-4 text-black">
             Super <span className="text-[#57bb5b]">Features</span>
-          </motion.h2>
-          <motion.p
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+          </h2>
+          <p className="features-subtitle text-lg text-gray-600 max-w-2xl mx-auto">
             Experience the future of digital communication
-          </motion.p>
+          </p>
         </div>
 
         {/* Features Layout - Single Continuous Grid */}
-        <div className="grid lg:grid-cols-2 gap-20 items-start max-w-5xl mx-auto">
+        <div className="feature-grid grid lg:grid-cols-2 gap-20 items-start max-w-5xl mx-auto">
           {/* Left Column */}
           <div className="space-y-16">
-            {/* Feature 3 */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
+            <div className="feature-item space-y-6">
               <div className="relative">
-                <motion.div
-                  className="relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
+                <div
+                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
                   style={{ aspectRatio: "2.5/3.5" }}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <img
-                    src={features[2].image}
-                    alt={features[2].title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(135deg, ${features[2].color}15 0%, transparent 50%)`,
-                    }}
-                  />
-                </motion.div>
-              </div>
-
-              <div className="space-y-4 text-left">
-                <h3 className="text-3xl md:text-4xl font-bold text-black">
-                  {features[2].title}
-                </h3>
-                <p className="text-gray-700 text-lg">
-                  {features[2].description}
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Feature 1 */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-6"
-            >
-              <div className="relative">
-                <motion.div
-                  className="relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
-                  style={{ aspectRatio: "2.5/3.5" }}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
                 >
                   <img
                     src={features[0].image}
@@ -182,10 +174,10 @@ export default function FeaturesSection() {
                       background: `linear-gradient(135deg, ${features[0].color}15 0%, transparent 50%)`,
                     }}
                   />
-                </motion.div>
+                </div>
               </div>
 
-              <div className="space-y-4 text-left">
+              <div className="feature-text space-y-4 text-left">
                 <h3 className="text-3xl md:text-4xl font-bold text-black">
                   {features[0].title}
                 </h3>
@@ -193,22 +185,44 @@ export default function FeaturesSection() {
                   {features[0].description}
                 </p>
               </div>
-            </motion.div>
+            </div>
+
+            <div className="feature-item space-y-6">
+              <div className="relative">
+                <div
+                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
+                  style={{ aspectRatio: "5/4" }}
+                >
+                  <img
+                    src={features[2].image}
+                    alt={features[2].title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: `linear-gradient(135deg, ${features[2].color}15 0%, transparent 50%)`,
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="feature-text space-y-4 text-left">
+                <h3 className="text-3xl md:text-4xl font-bold text-black">
+                  {features[2].title}
+                </h3>
+                <p className="text-gray-700 text-lg">
+                  {features[2].description}
+                </p>
+              </div>
+            </div>
 
             {/* Feature 5 */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="space-y-6"
-            >
+            <div className="feature-item space-y-6">
               <div className="relative">
-                <motion.div
-                  className="relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
+                <div
+                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
                   style={{ aspectRatio: "2.5/3.5" }}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
                 >
                   <img
                     src={features[4].image}
@@ -221,10 +235,10 @@ export default function FeaturesSection() {
                       background: `linear-gradient(135deg, ${features[4].color}15 0%, transparent 50%)`,
                     }}
                   />
-                </motion.div>
+                </div>
               </div>
 
-              <div className="space-y-4 text-left">
+              <div className="feature-text space-y-4 text-left">
                 <h3 className="text-3xl md:text-4xl font-bold text-black">
                   {features[4].title}
                 </h3>
@@ -232,28 +246,18 @@ export default function FeaturesSection() {
                   {features[4].description}
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right Column */}
           <div className="space-y-16">
             {/* Space Block */}
             <div className="h-32 lg:h-40"></div>
-
-            {/* Feature 2 */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="space-y-6"
-            >
+            <div className="feature-item space-y-6">
               <div className="relative">
-                <motion.div
-                  className="relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
+                <div
+                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
                   style={{ aspectRatio: "2.5/3.5" }}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
                 >
                   <img
                     src={features[1].image}
@@ -266,10 +270,10 @@ export default function FeaturesSection() {
                       background: `linear-gradient(135deg, ${features[1].color}15 0%, transparent 50%)`,
                     }}
                   />
-                </motion.div>
+                </div>
               </div>
 
-              <div className="space-y-4 text-left">
+              <div className="feature-text space-y-4 text-left">
                 <h3 className="text-3xl md:text-4xl font-bold text-black">
                   {features[1].title}
                 </h3>
@@ -277,22 +281,14 @@ export default function FeaturesSection() {
                   {features[1].description}
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             {/* Feature 4 */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="space-y-6"
-            >
+            <div className="feature-item space-y-6">
               <div className="relative">
-                <motion.div
-                  className="relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
+                <div
+                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
                   style={{ aspectRatio: "2.5/3.5" }}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
                 >
                   <img
                     src={features[3].image}
@@ -305,10 +301,10 @@ export default function FeaturesSection() {
                       background: `linear-gradient(135deg, ${features[3].color}15 0%, transparent 50%)`,
                     }}
                   />
-                </motion.div>
+                </div>
               </div>
 
-              <div className="space-y-4 text-left">
+              <div className="feature-text space-y-4 text-left">
                 <h3 className="text-3xl md:text-4xl font-bold text-black">
                   {features[3].title}
                 </h3>
@@ -316,7 +312,7 @@ export default function FeaturesSection() {
                   {features[3].description}
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
