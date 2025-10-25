@@ -15,6 +15,7 @@ const features = [
     subtitle: "Connect Like Never Before",
     description:
       "Revolutionize your messaging experience with style and security",
+    shortDesc: "Authentic voice messaging with modern chat features",
     image: "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg",
     color: "#57bb5b",
   },
@@ -23,6 +24,7 @@ const features = [
     title: "Shots",
     subtitle: "Capture & Create",
     description: "Share your moments with style and earn real rewards",
+    shortDesc: "Snap, share, and earn with creative photo features",
     image: "https://images.pexels.com/photos/1983032/pexels-photo-1983032.jpeg",
     color: "#ff6b6b",
   },
@@ -31,6 +33,7 @@ const features = [
     title: "Ifeed",
     subtitle: "Smart Discovery",
     description: "A feed that actually gets you, with global connections",
+    shortDesc: "Personalized content feed connecting you worldwide",
     image: "https://images.pexels.com/photos/1420709/pexels-photo-1420709.jpeg",
     color: "#4ecdc4",
   },
@@ -39,6 +42,7 @@ const features = [
     title: "Discover",
     subtitle: "Explore Around",
     description: "Find amazing places and experiences near you",
+    shortDesc: "Discover local experiences and hidden gems nearby",
     image: "https://images.pexels.com/photos/1181233/pexels-photo-1181233.jpeg",
     color: "#45b7d1",
   },
@@ -47,6 +51,7 @@ const features = [
     title: "Planner",
     subtitle: "Smart Planning",
     description: "Create, customize, and join events effortlessly",
+    shortDesc: "Plan and organize events with smart scheduling",
     image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
     color: "#f7b731",
   },
@@ -160,7 +165,7 @@ export default function FeaturesSection() {
             <div className="feature-item space-y-6">
               <div className="relative">
                 <div
-                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
+                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
                   style={{ aspectRatio: "2.5/3.5" }}
                 >
                   <img
@@ -181,6 +186,9 @@ export default function FeaturesSection() {
                 <h3 className="text-3xl md:text-4xl font-bold text-black">
                   {features[0].title}
                 </h3>
+                <p className="text-sm text-gray-500 italic">
+                  {features[0].shortDesc}
+                </p>
                 <p className="text-gray-700 text-lg">
                   {features[0].description}
                 </p>
@@ -190,7 +198,7 @@ export default function FeaturesSection() {
             <div className="feature-item space-y-6">
               <div className="relative">
                 <div
-                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
+                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
                   style={{ aspectRatio: "5/4" }}
                 >
                   <img
@@ -211,6 +219,9 @@ export default function FeaturesSection() {
                 <h3 className="text-3xl md:text-4xl font-bold text-black">
                   {features[2].title}
                 </h3>
+                <p className="text-sm text-gray-500 italic">
+                  {features[2].shortDesc}
+                </p>
                 <p className="text-gray-700 text-lg">
                   {features[2].description}
                 </p>
@@ -221,7 +232,7 @@ export default function FeaturesSection() {
             <div className="feature-item space-y-6">
               <div className="relative">
                 <div
-                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
+                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
                   style={{ aspectRatio: "2.5/3.5" }}
                 >
                   <img
@@ -242,6 +253,9 @@ export default function FeaturesSection() {
                 <h3 className="text-3xl md:text-4xl font-bold text-black">
                   {features[4].title}
                 </h3>
+                <p className="text-sm text-gray-500 italic">
+                  {features[4].shortDesc}
+                </p>
                 <p className="text-gray-700 text-lg">
                   {features[4].description}
                 </p>
@@ -256,7 +270,7 @@ export default function FeaturesSection() {
             <div className="feature-item space-y-6">
               <div className="relative">
                 <div
-                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
+                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
                   style={{ aspectRatio: "2.5/3.5" }}
                 >
                   <img
@@ -277,6 +291,9 @@ export default function FeaturesSection() {
                 <h3 className="text-3xl md:text-4xl font-bold text-black">
                   {features[1].title}
                 </h3>
+                <p className="text-sm text-gray-500 italic">
+                  {features[1].shortDesc}
+                </p>
                 <p className="text-gray-700 text-lg">
                   {features[1].description}
                 </p>
@@ -287,7 +304,7 @@ export default function FeaturesSection() {
             <div className="feature-item space-y-6">
               <div className="relative">
                 <div
-                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg"
+                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
                   style={{ aspectRatio: "2.5/3.5" }}
                 >
                   <img
@@ -308,6 +325,9 @@ export default function FeaturesSection() {
                 <h3 className="text-3xl md:text-4xl font-bold text-black">
                   {features[3].title}
                 </h3>
+                <p className="text-sm text-gray-500 italic">
+                  {features[3].shortDesc}
+                </p>
                 <p className="text-gray-700 text-lg">
                   {features[3].description}
                 </p>

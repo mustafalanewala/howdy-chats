@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, LogIn, ChevronRight } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -17,12 +18,34 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isHamburgerOpen &&
+        !(event.target as Element).closest(".hamburger-menu")
+      ) {
+        setIsHamburgerOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isHamburgerOpen]);
+
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Features", href: "/features" },
-    { name: "Blog", href: "/blog" },
+    { name: "News", href: "/news" },
     { name: "Contact", href: "/contact" },
+  ];
+
+  const hamburgerItems = [
+    { name: "Blogs", href: "/blogs" },
+    { name: "Developers", href: "/developers" },
+    { name: "Creators", href: "/creators" },
+    { name: "Business", href: "/business" },
+    { name: "Careers", href: "/careers" },
   ];
 
   const menuVariants = {
@@ -69,13 +92,29 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold cursor-pointer"
-            >
-              <span className="text-white">Howdy Chats</span>
-            </motion.div>
+            {/* Hamburger Menu and Logo Group */}
+            <div className="flex items-center gap-4">
+              {/* Hamburger Menu - Desktop */}
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsHamburgerOpen(!isHamburgerOpen)}
+                className="hidden lg:flex text-white hover:text-[#57bb5b] transition-colors duration-300 p-2"
+              >
+                <Menu size={20} />
+              </motion.button>
+
+              {/* Logo */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="text-2xl font-bold cursor-pointer"
+              >
+                <span className="text-white">Howdy Chats</span>
+              </motion.div>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
@@ -101,8 +140,8 @@ export default function Navbar() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#57bb5b] text-black px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-[#4a9e4c] transition-all duration-300 shadow-lg hover:shadow-[#57bb5b]/25"
               >
-                <Download size={18} />
-                Download App
+                <LogIn size={18} />
+                Login
               </motion.button>
             </div>
 
@@ -147,9 +186,76 @@ export default function Navbar() {
                     variants={itemVariants}
                     className="bg-[#57bb5b] text-black px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-[#4a9e4c] transition-all duration-300 w-fit"
                   >
-                    <Download size={18} />
-                    Download App
+                    <LogIn size={18} />
+                    Login
                   </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Full-Screen Hamburger Menu */}
+        <AnimatePresence>
+          {isHamburgerOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 flex items-start justify-start pt-32 pl-12 hamburger-overlay"
+              onClick={() => setIsHamburgerOpen(false)}
+            >
+              <div className="absolute top-6 right-6">
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ delay: 0.2 }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsHamburgerOpen(false);
+                  }}
+                  className="text-white hover:text-[#57bb5b] transition-colors duration-300 p-2"
+                >
+                  <X size={24} />
+                </motion.button>
+              </div>
+
+              <div className="text-left" onClick={(e) => e.stopPropagation()}>
+                <motion.h2
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="text-5xl md:text-7xl font-bold text-white mb-16"
+                >
+                  Menu
+                </motion.h2>
+
+                <div className="space-y-12">
+                  {hamburgerItems.map((item, index) => (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 + index * 0.1 }}
+                      className="group flex items-center text-3xl md:text-5xl font-bold text-white hover:text-[#57bb5b] transition-colors duration-300"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsHamburgerOpen(false);
+                      }}
+                    >
+                      <span className="relative">
+                        {item.name}
+                        <span className="absolute -bottom-2 left-0 w-0 h-1 bg-[#57bb5b] transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                      <ChevronRight
+                        size={32}
+                        className="ml-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                      />
+                    </motion.a>
+                  ))}
                 </div>
               </div>
             </motion.div>

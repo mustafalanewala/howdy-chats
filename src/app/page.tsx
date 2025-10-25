@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import AboutHowdy from "../components/AboutHowdy";
-import FeaturesSection from "../components/FeaturesSection";
+import SeeWhatsNew from "../components/SeeWhatsNew";
+import Features from "../components/Features";
 import Philosophy from "../components/Philosophy";
-import BlogSection from "../components/BlogSection";
+import Blogs from "../components/Blogs";
 import Footer from "../components/Footer";
 import CustomCursor from "../components/CustomCursor";
 
@@ -36,9 +37,10 @@ export default function Home() {
       <Navbar />
       <Hero />
       <AboutHowdy />
-      <FeaturesSection />
+      <SeeWhatsNew />
+      <Features />
       <Philosophy />
-      <BlogSection />
+      <Blogs />
       <Footer />
     </div>
   );

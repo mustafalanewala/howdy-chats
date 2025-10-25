@@ -94,7 +94,7 @@ export default function Hero() {
         >
           <motion.h1
             ref={titleRef}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase leading-tight mb-6"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase leading-tight mb-6"
             style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
           >
             Say <span className="italic text-[#57bb5b]">howdy</span> to
