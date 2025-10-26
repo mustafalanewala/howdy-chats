@@ -12,48 +12,101 @@ const features = [
   {
     id: 1,
     title: "Howdy Chats",
-    subtitle: "Connect Like Never Before",
+    subtitle: "One-to-One & Group Chats",
     description:
-      "Revolutionize your messaging experience with style and security",
-    shortDesc: "Authentic voice messaging with modern chat features",
+      "Chat instantly with friends and groups using your number messages, media, and calls made easy.",
+    shortDesc: "Instant messaging with friends and groups",
     image: "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg",
     color: "#57bb5b",
   },
   {
     id: 2,
-    title: "Shots",
-    subtitle: "Capture & Create",
-    description: "Share your moments with style and earn real rewards",
-    shortDesc: "Snap, share, and earn with creative photo features",
+    title: "Direct Messages",
+    subtitle: "From Posts & Reels",
+    description:
+      "Send private messages straight from posts, reels, or status updates.",
+    shortDesc: "Private messaging from any content",
     image: "https://images.pexels.com/photos/1983032/pexels-photo-1983032.jpeg",
     color: "#ff6b6b",
   },
   {
     id: 3,
-    title: "Ifeed",
-    subtitle: "Smart Discovery",
-    description: "A feed that actually gets you, with global connections",
-    shortDesc: "Personalized content feed connecting you worldwide",
+    title: "Reach Your Followers",
+    subtitle: "Channels",
+    description:
+      "Share updates, polls, and media with all your followers in one go.",
+    shortDesc: "Broadcast to all your followers instantly",
     image: "https://images.pexels.com/photos/1420709/pexels-photo-1420709.jpeg",
     color: "#4ecdc4",
   },
   {
     id: 4,
-    title: "Discover",
-    subtitle: "Explore Around",
-    description: "Find amazing places and experiences near you",
-    shortDesc: "Discover local experiences and hidden gems nearby",
+    title: "Share Your Moments",
+    subtitle: "Status",
+    description:
+      "Post text, photos, videos, or GIFs and let friends react instantly.",
+    shortDesc: "Express yourself with disappearing content",
     image: "https://images.pexels.com/photos/1181233/pexels-photo-1181233.jpeg",
     color: "#45b7d1",
   },
   {
     id: 5,
-    title: "Planner",
-    subtitle: "Smart Planning",
-    description: "Create, customize, and join events effortlessly",
-    shortDesc: "Plan and organize events with smart scheduling",
+    title: "Make Your Profile Yours",
+    subtitle: "Profile",
+    description:
+      "Show off your style with bio, photos, music, links, and highlights.",
+    shortDesc: "Customize your personal brand",
     image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
     color: "#f7b731",
+  },
+  {
+    id: 6,
+    title: "Create & Remix Videos",
+    subtitle: "Shots",
+    description:
+      "Record, edit, and remix short videos with fun effects and stickers.",
+    shortDesc: "Professional video creation tools",
+    image: "https://images.pexels.com/photos/1983032/pexels-photo-1983032.jpeg",
+    color: "#ff6b6b",
+  },
+  {
+    id: 7,
+    title: "Explore & Stay Updated",
+    subtitle: "iFeed & Discover",
+    description:
+      "Discover trending posts, reels, events, and content from your network.",
+    shortDesc: "Personalized content discovery",
+    image: "https://images.pexels.com/photos/1420709/pexels-photo-1420709.jpeg",
+    color: "#4ecdc4",
+  },
+  {
+    id: 8,
+    title: "Plan Your Day",
+    subtitle: "Planner",
+    description: "Organize tasks, events, and reminders, solo or with friends.",
+    shortDesc: "Smart scheduling and organization",
+    image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+    color: "#f7b731",
+  },
+  {
+    id: 9,
+    title: "Grow as a Creator",
+    subtitle: "For Creators",
+    description:
+      "Reach more people, track engagement, and grow your audience effortlessly.",
+    shortDesc: "Creator tools and analytics",
+    image: "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg",
+    color: "#57bb5b",
+  },
+  {
+    id: 10,
+    title: "Grow Your Business",
+    subtitle: "For Business",
+    description:
+      "Promote your brand, connect with customers, and measure results easily.",
+    shortDesc: "Business promotion and analytics",
+    image: "https://images.pexels.com/photos/1181233/pexels-photo-1181233.jpeg",
+    color: "#45b7d1",
   },
 ];
 
@@ -162,177 +215,84 @@ export default function FeaturesSection() {
         <div className="feature-grid grid lg:grid-cols-2 gap-20 items-start max-w-5xl mx-auto">
           {/* Left Column */}
           <div className="space-y-16">
-            <div className="feature-item space-y-6">
-              <div className="relative">
-                <div
-                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
-                  style={{ aspectRatio: "2.5/3.5" }}
-                >
-                  <img
-                    src={features[0].image}
-                    alt={features[0].title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(135deg, ${features[0].color}15 0%, transparent 50%)`,
-                    }}
-                  />
+            {features
+              .filter((_, index) => index % 2 === 0)
+              .map((feature, index) => (
+                <div key={feature.id} className="feature-item space-y-6">
+                  <div className="relative">
+                    <div
+                      className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
+                      style={{ aspectRatio: index === 1 ? "5/4" : "2.5/3.5" }}
+                    >
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: `linear-gradient(135deg, ${feature.color}15 0%, transparent 50%)`,
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="feature-text space-y-2 text-left">
+                    <h3 className="text-3xl md:text-4xl font-bold text-black">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 italic">
+                      {feature.shortDesc}
+                    </p>
+                    <p className="text-gray-700 text-lg">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="feature-text space-y-4 text-left">
-                <h3 className="text-3xl md:text-4xl font-bold text-black">
-                  {features[0].title}
-                </h3>
-                <p className="text-sm text-gray-500 italic">
-                  {features[0].shortDesc}
-                </p>
-                <p className="text-gray-700 text-lg">
-                  {features[0].description}
-                </p>
-              </div>
-            </div>
-
-            <div className="feature-item space-y-6">
-              <div className="relative">
-                <div
-                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
-                  style={{ aspectRatio: "5/4" }}
-                >
-                  <img
-                    src={features[2].image}
-                    alt={features[2].title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(135deg, ${features[2].color}15 0%, transparent 50%)`,
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="feature-text space-y-4 text-left">
-                <h3 className="text-3xl md:text-4xl font-bold text-black">
-                  {features[2].title}
-                </h3>
-                <p className="text-sm text-gray-500 italic">
-                  {features[2].shortDesc}
-                </p>
-                <p className="text-gray-700 text-lg">
-                  {features[2].description}
-                </p>
-              </div>
-            </div>
-
-            {/* Feature 5 */}
-            <div className="feature-item space-y-6">
-              <div className="relative">
-                <div
-                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
-                  style={{ aspectRatio: "2.5/3.5" }}
-                >
-                  <img
-                    src={features[4].image}
-                    alt={features[4].title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(135deg, ${features[4].color}15 0%, transparent 50%)`,
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="feature-text space-y-4 text-left">
-                <h3 className="text-3xl md:text-4xl font-bold text-black">
-                  {features[4].title}
-                </h3>
-                <p className="text-sm text-gray-500 italic">
-                  {features[4].shortDesc}
-                </p>
-                <p className="text-gray-700 text-lg">
-                  {features[4].description}
-                </p>
-              </div>
-            </div>
+              ))}
           </div>
 
           {/* Right Column */}
           <div className="space-y-16">
             {/* Space Block */}
             <div className="h-32 lg:h-40"></div>
-            <div className="feature-item space-y-6">
-              <div className="relative">
-                <div
-                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
-                  style={{ aspectRatio: "2.5/3.5" }}
-                >
-                  <img
-                    src={features[1].image}
-                    alt={features[1].title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(135deg, ${features[1].color}15 0%, transparent 50%)`,
-                    }}
-                  />
+            {features
+              .filter((_, index) => index % 2 === 1)
+              .map((feature, index) => (
+                <div key={feature.id} className="feature-item space-y-6">
+                  <div className="relative">
+                    <div
+                      className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
+                      style={{ aspectRatio: index === 3 ? "5/4" : "2.5/3.5" }}
+                    >
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: `linear-gradient(135deg, ${feature.color}15 0%, transparent 50%)`,
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="feature-text space-y-2 text-left">
+                    <h3 className="text-3xl md:text-4xl font-bold text-black">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 italic">
+                      {feature.shortDesc}
+                    </p>
+                    <p className="text-gray-700 text-lg">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="feature-text space-y-4 text-left">
-                <h3 className="text-3xl md:text-4xl font-bold text-black">
-                  {features[1].title}
-                </h3>
-                <p className="text-sm text-gray-500 italic">
-                  {features[1].shortDesc}
-                </p>
-                <p className="text-gray-700 text-lg">
-                  {features[1].description}
-                </p>
-              </div>
-            </div>
-
-            {/* Feature 4 */}
-            <div className="feature-item space-y-6">
-              <div className="relative">
-                <div
-                  className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
-                  style={{ aspectRatio: "2.5/3.5" }}
-                >
-                  <img
-                    src={features[3].image}
-                    alt={features[3].title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(135deg, ${features[3].color}15 0%, transparent 50%)`,
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="feature-text space-y-4 text-left">
-                <h3 className="text-3xl md:text-4xl font-bold text-black">
-                  {features[3].title}
-                </h3>
-                <p className="text-sm text-gray-500 italic">
-                  {features[3].shortDesc}
-                </p>
-                <p className="text-gray-700 text-lg">
-                  {features[3].description}
-                </p>
-              </div>
-            </div>
+              ))}
           </div>
         </div>
       </div>
