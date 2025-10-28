@@ -220,39 +220,22 @@ export default function FeaturesSection() {
               .map((feature, index) => (
                 <div key={feature.id} className="feature-item space-y-6">
                   <div className="relative">
-                    <a href={`/features/${feature.id}`}>
+                    <div
+                      className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover group"
+                      style={{ aspectRatio: index === 1 ? "5/4" : "2.5/3.5" }}
+                    >
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                       <div
-                        className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover group"
-                        style={{ aspectRatio: index === 1 ? "5/4" : "2.5/3.5" }}
-                      >
-                        <img
-                          src={feature.image}
-                          alt={feature.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div
-                          className="absolute inset-0"
-                          style={{
-                            background: `linear-gradient(135deg, ${feature.color}15 0%, transparent 50%)`,
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                          <div className="bg-white/90 rounded-full p-3 transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                            <svg
-                              className="w-6 h-6 text-black"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
+                        className="absolute inset-0"
+                        style={{
+                          background: `linear-gradient(135deg, ${feature.color}15 0%, transparent 50%)`,
+                        }}
+                      />
+                    </div>
                   </div>
 
                   <div className="feature-text space-y-2 text-left">
@@ -279,39 +262,22 @@ export default function FeaturesSection() {
               .map((feature, index) => (
                 <div key={feature.id} className="feature-item space-y-6">
                   <div className="relative">
-                    <a href={`/features/${feature.id}`}>
+                    <div
+                      className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover group"
+                      style={{ aspectRatio: index === 3 ? "5/4" : "2.5/3.5" }}
+                    >
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                       <div
-                        className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover group"
-                        style={{ aspectRatio: index === 3 ? "5/4" : "2.5/3.5" }}
-                      >
-                        <img
-                          src={feature.image}
-                          alt={feature.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div
-                          className="absolute inset-0"
-                          style={{
-                            background: `linear-gradient(135deg, ${feature.color}15 0%, transparent 50%)`,
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                          <div className="bg-white/90 rounded-full p-3 transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                            <svg
-                              className="w-6 h-6 text-black"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
+                        className="absolute inset-0"
+                        style={{
+                          background: `linear-gradient(135deg, ${feature.color}15 0%, transparent 50%)`,
+                        }}
+                      />
+                    </div>
                   </div>
 
                   <div className="feature-text space-y-2 text-left">

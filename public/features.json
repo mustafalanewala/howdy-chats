@@ -1,0 +1,268 @@
+[
+  {
+    "id": "ifeed",
+    "title": "iFeed",
+    "subtitle": "Your Personal Social Feed",
+    "heroImage": "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg",
+    "features": [
+      {
+        "image": "https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg",
+        "title": "Personalized Content",
+        "subtitle": "AI-powered feed tailored to your interests"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
+        "title": "Trending Posts",
+        "subtitle": "Discover the latest trending content from creators"
+      },
+      {
+        "image": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
+        "title": "Interactive Stories",
+        "subtitle": "Engage with stories from friends and influencers"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg",
+        "title": "Live Updates",
+        "subtitle": "Real-time updates from your favorite accounts"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
+        "title": "Smart Recommendations",
+        "subtitle": "Discover new content based on your preferences"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+        "title": "Content Filtering",
+        "subtitle": "Control what content appears in your feed"
+      }
+    ]
+  },
+  {
+    "id": "profile",
+    "title": "Profile",
+    "subtitle": "Make Your Profile Yours",
+    "heroImage": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+    "features": [
+      {
+        "image": "https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg",
+        "title": "Custom Themes",
+        "subtitle": "Personalize your profile with unique themes"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
+        "title": "Bio & Links",
+        "subtitle": "Add your bio and link to your website or socials"
+      },
+      {
+        "image": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
+        "title": "Profile Highlights",
+        "subtitle": "Showcase your best moments and achievements"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg",
+        "title": "Privacy Settings",
+        "subtitle": "Control who can see your profile information"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
+        "title": "Profile Analytics",
+        "subtitle": "Track profile views and engagement metrics"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+        "title": "Verification Badge",
+        "subtitle": "Get verified and build trust with your audience"
+      }
+    ]
+  },
+  {
+    "id": "shots",
+    "title": "Shots",
+    "subtitle": "Create & Remix Videos",
+    "heroImage": "https://images.pexels.com/photos/1983032/pexels-photo-1983032.jpeg",
+    "features": [
+      {
+        "image": "https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg",
+        "title": "Video Recording",
+        "subtitle": "Record high-quality videos with your smartphone"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
+        "title": "Video Editing",
+        "subtitle": "Professional editing tools right in your app"
+      },
+      {
+        "image": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
+        "title": "Effects & Filters",
+        "subtitle": "Add stunning effects and filters to your videos"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg",
+        "title": "Music Library",
+        "subtitle": "Access to millions of songs and soundtracks"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
+        "title": "Stickers & Text",
+        "subtitle": "Add fun stickers, text, and animations"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+        "title": "Remixing Tools",
+        "subtitle": "Remix and create new content from existing videos"
+      }
+    ]
+  },
+  {
+    "id": "chat-translator",
+    "title": "Chat Translator",
+    "subtitle": "Break Language Barriers",
+    "heroImage": "https://images.pexels.com/photos/1181233/pexels-photo-1181233.jpeg",
+    "features": [
+      {
+        "image": "https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg",
+        "title": "Real-time Translation",
+        "subtitle": "Translate messages instantly in conversations"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
+        "title": "Multiple Languages",
+        "subtitle": "Support for 100+ languages worldwide"
+      },
+      {
+        "image": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
+        "title": "Voice Translation",
+        "subtitle": "Translate spoken language in real-time calls"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg",
+        "title": "Context Preservation",
+        "subtitle": "Maintain meaning and context in translations"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
+        "title": "Offline Mode",
+        "subtitle": "Translate even without internet connection"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+        "title": "Cultural Adaptation",
+        "subtitle": "Adapt translations to local cultural contexts"
+      }
+    ]
+  },
+  {
+    "id": "planner",
+    "title": "Planner",
+    "subtitle": "Plan Your Day",
+    "heroImage": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+    "features": [
+      {
+        "image": "https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg",
+        "title": "Task Management",
+        "subtitle": "Create and organize tasks with priorities"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
+        "title": "Calendar Integration",
+        "subtitle": "Sync with your calendar for seamless planning"
+      },
+      {
+        "image": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
+        "title": "Reminders & Alerts",
+        "subtitle": "Never miss important tasks and events"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg",
+        "title": "Collaborative Planning",
+        "subtitle": "Plan and coordinate with friends and colleagues"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
+        "title": "Progress Tracking",
+        "subtitle": "Monitor your productivity and achievements"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+        "title": "Smart Suggestions",
+        "subtitle": "AI-powered suggestions for better planning"
+      }
+    ]
+  },
+  {
+    "id": "channels",
+    "title": "Channels",
+    "subtitle": "Reach Your Followers",
+    "heroImage": "https://images.pexels.com/photos/1420709/pexels-photo-1420709.jpeg",
+    "features": [
+      {
+        "image": "https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg",
+        "title": "Broadcast Messages",
+        "subtitle": "Send updates to thousands of followers instantly"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
+        "title": "Interactive Polls",
+        "subtitle": "Create polls and get instant feedback from your audience"
+      },
+      {
+        "image": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
+        "title": "Rich Media Content",
+        "subtitle": "Share images, videos, and documents with your followers"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg",
+        "title": "Analytics Dashboard",
+        "subtitle": "Track engagement and growth metrics in real-time"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
+        "title": "Subscriber Management",
+        "subtitle": "Manage subscribers and control who can join your channel"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+        "title": "Monetization Tools",
+        "subtitle": "Earn revenue through premium content and donations"
+      }
+    ]
+  },
+  {
+    "id": "discover",
+    "title": "Discover",
+    "subtitle": "Explore & Stay Updated",
+    "heroImage": "https://images.pexels.com/photos/1420709/pexels-photo-1420709.jpeg",
+    "features": [
+      {
+        "image": "https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg",
+        "title": "Trending Content",
+        "subtitle": "Discover the latest trending posts and videos"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
+        "title": "Personalized Feed",
+        "subtitle": "AI-powered feed tailored to your interests"
+      },
+      {
+        "image": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
+        "title": "Explore Categories",
+        "subtitle": "Browse content by categories and hashtags"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg",
+        "title": "Live Events",
+        "subtitle": "Watch and participate in live events and streams"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
+        "title": "Community Groups",
+        "subtitle": "Join communities and groups based on your interests"
+      },
+      {
+        "image": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+        "title": "Content Search",
+        "subtitle": "Advanced search to find exactly what you're looking for"
+      }
+    ]
+  }
+]
