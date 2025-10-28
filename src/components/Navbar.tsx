@@ -2,11 +2,19 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, LogIn, ChevronRight } from "lucide-react";
+import {
+  Menu,
+  X,
+  LogIn,
+  ChevronRight,
+  Download,
+  ChevronDown,
+} from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+  const [isFeaturesDropdownOpen, setIsFeaturesDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,18 +34,33 @@ export default function Navbar() {
       ) {
         setIsHamburgerOpen(false);
       }
+      if (
+        isFeaturesDropdownOpen &&
+        !(event.target as Element).closest(".features-dropdown")
+      ) {
+        setIsFeaturesDropdownOpen(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isHamburgerOpen]);
+  }, [isHamburgerOpen, isFeaturesDropdownOpen]);
 
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Features", href: "/features" },
     { name: "News", href: "/news" },
     { name: "Contact", href: "/contact" },
+  ];
+
+  const featuresDropdownItems = [
+    { name: "iFeed", href: "/features/ifeed" },
+    { name: "Profile", href: "/features/profile" },
+    { name: "Shots", href: "/features/shots" },
+    { name: "Chat Translator", href: "/features/chat-translator" },
+    { name: "Planner", href: "/features/planner" },
+    { name: "Channels", href: "/features/channels" },
+    { name: "Discover", href: "/features/discover" },
   ];
 
   const hamburgerItems = [
@@ -117,8 +140,9 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
-              {navItems.map((item, index) => (
+            <div className="hidden lg:flex items-center space-x-6">
+              {/* Home and About */}
+              {navItems.slice(0, 2).map((item, index) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
@@ -132,17 +156,90 @@ export default function Navbar() {
                 </motion.a>
               ))}
 
-              <motion.button
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-[#57bb5b] text-black px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-[#4a9e4c] transition-all duration-300 shadow-lg hover:shadow-[#57bb5b]/25"
-              >
-                <LogIn size={18} />
-                Login
-              </motion.button>
+              {/* Features Dropdown */}
+              <div className="relative features-dropdown">
+                <motion.button
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  onClick={() =>
+                    setIsFeaturesDropdownOpen(!isFeaturesDropdownOpen)
+                  }
+                  className="relative text-white hover:text-[#57bb5b] transition-colors duration-300 font-medium group flex items-center gap-1"
+                >
+                  Features
+                  <ChevronDown
+                    size={16}
+                    className={`transition-transform duration-300 ${
+                      isFeaturesDropdownOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#57bb5b] transition-all duration-300 group-hover:w-full"></span>
+                </motion.button>
+
+                <AnimatePresence>
+                  {isFeaturesDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full mt-2 w-56 bg-black/95 backdrop-blur-lg border border-gray-800/50 rounded-2xl shadow-xl overflow-hidden"
+                    >
+                      {featuresDropdownItems.map((item) => (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className="block px-6 py-3 text-white hover:text-[#57bb5b] hover:bg-[#57bb5b]/10 transition-all duration-300 text-sm font-medium"
+                          onClick={() => setIsFeaturesDropdownOpen(false)}
+                        >
+                          {item.name}
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* News and Contact */}
+              {navItems.slice(2).map((item, index) => (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: (index + 4) * 0.1 + 0.3 }}
+                  className="relative text-white hover:text-[#57bb5b] transition-colors duration-300 font-medium group"
+                >
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#57bb5b] transition-all duration-300 group-hover:w-full"></span>
+                </motion.a>
+              ))}
+              <div className="flex gap-3">
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.7 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="border-2 border-[#57bb5b] text-[#57bb5b] px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-[#57bb5b] hover:text-black transition-all duration-300"
+                >
+                  <Download size={18} />
+                  Download App
+                </motion.button>
+
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.8 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-[#57bb5b] text-black px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-[#4a9e4c] transition-all duration-300 shadow-lg hover:shadow-[#57bb5b]/25"
+                >
+                  <LogIn size={18} />
+                  Login
+                </motion.button>
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -170,7 +267,8 @@ export default function Navbar() {
             >
               <div className="max-w-7xl mx-auto px-6 py-6">
                 <div className="flex flex-col space-y-6">
-                  {navItems.map((item) => (
+                  {/* Home and About */}
+                  {navItems.slice(0, 2).map((item) => (
                     <motion.a
                       key={item.name}
                       href={item.href}
@@ -181,6 +279,72 @@ export default function Navbar() {
                       {item.name}
                     </motion.a>
                   ))}
+
+                  {/* Mobile Features Dropdown */}
+                  <div className="space-y-4">
+                    <motion.button
+                      variants={itemVariants}
+                      onClick={() =>
+                        setIsFeaturesDropdownOpen(!isFeaturesDropdownOpen)
+                      }
+                      className="text-white hover:text-[#57bb5b] transition-colors duration-300 font-medium text-lg flex items-center gap-2"
+                    >
+                      Features
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform duration-300 ${
+                          isFeaturesDropdownOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </motion.button>
+
+                    <AnimatePresence>
+                      {isFeaturesDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="ml-6 space-y-3"
+                        >
+                          {featuresDropdownItems.map((item) => (
+                            <a
+                              key={item.name}
+                              href={item.href}
+                              className="block text-gray-300 hover:text-[#57bb5b] transition-colors duration-300 text-base"
+                              onClick={() => {
+                                setIsMenuOpen(false);
+                                setIsFeaturesDropdownOpen(false);
+                              }}
+                            >
+                              {item.name}
+                            </a>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {/* News and Contact */}
+                  {navItems.slice(2).map((item) => (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      variants={itemVariants}
+                      className="text-white hover:text-[#57bb5b] transition-colors duration-300 font-medium text-lg"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </motion.a>
+                  ))}
+
+                  <motion.button
+                    variants={itemVariants}
+                    className="border-2 border-[#57bb5b] text-[#57bb5b] px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-[#57bb5b] hover:text-black transition-all duration-300 w-fit"
+                  >
+                    <Download size={18} />
+                    Download App
+                  </motion.button>
 
                   <motion.button
                     variants={itemVariants}

@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
 
 const features = [
   {
-    id: 1,
+    id: "howdy-chats",
     title: "Howdy Chats",
     subtitle: "One-to-One & Group Chats",
     description:
@@ -20,7 +20,7 @@ const features = [
     color: "#57bb5b",
   },
   {
-    id: 2,
+    id: "direct-messages",
     title: "Direct Messages",
     subtitle: "From Posts & Reels",
     description:
@@ -30,7 +30,7 @@ const features = [
     color: "#ff6b6b",
   },
   {
-    id: 3,
+    id: "channels",
     title: "Reach Your Followers",
     subtitle: "Channels",
     description:
@@ -40,7 +40,7 @@ const features = [
     color: "#4ecdc4",
   },
   {
-    id: 4,
+    id: "status",
     title: "Share Your Moments",
     subtitle: "Status",
     description:
@@ -50,7 +50,7 @@ const features = [
     color: "#45b7d1",
   },
   {
-    id: 5,
+    id: "profile",
     title: "Make Your Profile Yours",
     subtitle: "Profile",
     description:
@@ -60,7 +60,7 @@ const features = [
     color: "#f7b731",
   },
   {
-    id: 6,
+    id: "shots",
     title: "Create & Remix Videos",
     subtitle: "Shots",
     description:
@@ -70,7 +70,7 @@ const features = [
     color: "#ff6b6b",
   },
   {
-    id: 7,
+    id: "discover",
     title: "Explore & Stay Updated",
     subtitle: "iFeed & Discover",
     description:
@@ -80,7 +80,7 @@ const features = [
     color: "#4ecdc4",
   },
   {
-    id: 8,
+    id: "planner",
     title: "Plan Your Day",
     subtitle: "Planner",
     description: "Organize tasks, events, and reminders, solo or with friends.",
@@ -89,7 +89,7 @@ const features = [
     color: "#f7b731",
   },
   {
-    id: 9,
+    id: "creators",
     title: "Grow as a Creator",
     subtitle: "For Creators",
     description:
@@ -99,7 +99,7 @@ const features = [
     color: "#57bb5b",
   },
   {
-    id: 10,
+    id: "business",
     title: "Grow Your Business",
     subtitle: "For Business",
     description:
@@ -220,22 +220,39 @@ export default function FeaturesSection() {
               .map((feature, index) => (
                 <div key={feature.id} className="feature-item space-y-6">
                   <div className="relative">
-                    <div
-                      className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
-                      style={{ aspectRatio: index === 1 ? "5/4" : "2.5/3.5" }}
-                    >
-                      <img
-                        src={feature.image}
-                        alt={feature.title}
-                        className="w-full h-full object-cover"
-                      />
+                    <a href={`/features/${feature.id}`}>
                       <div
-                        className="absolute inset-0"
-                        style={{
-                          background: `linear-gradient(135deg, ${feature.color}15 0%, transparent 50%)`,
-                        }}
-                      />
-                    </div>
+                        className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover group"
+                        style={{ aspectRatio: index === 1 ? "5/4" : "2.5/3.5" }}
+                      >
+                        <img
+                          src={feature.image}
+                          alt={feature.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div
+                          className="absolute inset-0"
+                          style={{
+                            background: `linear-gradient(135deg, ${feature.color}15 0%, transparent 50%)`,
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <div className="bg-white/90 rounded-full p-3 transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                            <svg
+                              className="w-6 h-6 text-black"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
                   </div>
 
                   <div className="feature-text space-y-2 text-left">
@@ -262,22 +279,39 @@ export default function FeaturesSection() {
               .map((feature, index) => (
                 <div key={feature.id} className="feature-item space-y-6">
                   <div className="relative">
-                    <div
-                      className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover"
-                      style={{ aspectRatio: index === 3 ? "5/4" : "2.5/3.5" }}
-                    >
-                      <img
-                        src={feature.image}
-                        alt={feature.title}
-                        className="w-full h-full object-cover"
-                      />
+                    <a href={`/features/${feature.id}`}>
                       <div
-                        className="absolute inset-0"
-                        style={{
-                          background: `linear-gradient(135deg, ${feature.color}15 0%, transparent 50%)`,
-                        }}
-                      />
-                    </div>
+                        className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover group"
+                        style={{ aspectRatio: index === 3 ? "5/4" : "2.5/3.5" }}
+                      >
+                        <img
+                          src={feature.image}
+                          alt={feature.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div
+                          className="absolute inset-0"
+                          style={{
+                            background: `linear-gradient(135deg, ${feature.color}15 0%, transparent 50%)`,
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <div className="bg-white/90 rounded-full p-3 transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                            <svg
+                              className="w-6 h-6 text-black"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
                   </div>
 
                   <div className="feature-text space-y-2 text-left">

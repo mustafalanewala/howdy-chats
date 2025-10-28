@@ -97,11 +97,7 @@ export default function Hero() {
             className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase leading-tight mb-6"
             style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
           >
-            Say <span className="italic text-[#57bb5b]">howdy</span> to
-            <br />
-            <span className="text-[#57bb5b] relative">
-              authentic conversations
-            </span>
+            Chat. Create. Connect.
           </motion.h1>
 
           <motion.p
@@ -110,11 +106,8 @@ export default function Hero() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-8"
           >
-            Where{" "}
-            <span className="italic text-[#57bb5b]">real expressions</span> meet
-            digital convenience. Voice messages, styled chats, and genuine
-            connections -
-            <span className="italic"> just like the good ol' days</span>
+            Howdy Chats is an all-in-one platform that brings your social,
+            professional, and personal connections - all in one place
           </motion.p>
         </motion.div>
 
