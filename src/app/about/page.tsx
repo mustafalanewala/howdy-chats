@@ -146,13 +146,13 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <motion.h1
               className="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 leading-tight"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1.2, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               We're building the future of
               <br />
@@ -162,9 +162,9 @@ export default function About() {
 
             <motion.p
               className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
               At Howdy Chats, we believe that every conversation should feel as
               natural and expressive as talking face-to-face. We're on a mission
@@ -173,9 +173,9 @@ export default function About() {
 
             <motion.div
               className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.9 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
               <motion.a
                 href="/contact"
@@ -204,25 +204,25 @@ export default function About() {
       <section ref={missionRef} className="py-32 px-6 bg-[#57bb5b] text-black">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.6 }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
           >
             <div>
               <motion.h2
                 className="text-4xl md:text-6xl font-bold mb-8"
-                initial={{ opacity: 0, x: -50 }}
-                animate={isMissionInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 1, delay: 0.2 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.1 }}
               >
                 Our Mission
               </motion.h2>
               <motion.p
                 className="text-lg md:text-xl mb-6 opacity-90"
-                initial={{ opacity: 0, x: -30 }}
-                animate={isMissionInView ? { opacity: 0.9, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
                 To revolutionize digital communication by creating a platform
                 where authenticity, expression, and genuine human connection
@@ -231,9 +231,9 @@ export default function About() {
               </motion.p>
               <motion.p
                 className="text-lg opacity-80"
-                initial={{ opacity: 0, x: -30 }}
-                animate={isMissionInView ? { opacity: 0.8, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.3 }}
               >
                 Every voice message, every styled chat, every reaction is
                 designed to help you express yourself more naturally and connect
@@ -243,9 +243,9 @@ export default function About() {
 
             <motion.div
               className="relative"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isMissionInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 1, delay: 0.3 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="bg-black/10 rounded-3xl p-8 backdrop-blur-sm">
                 <div className="grid grid-cols-2 gap-6">
@@ -260,7 +260,7 @@ export default function About() {
                       className="text-center"
                       initial={{ opacity: 0, y: 20 }}
                       animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                      transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                     >
                       <div className="bg-black rounded-2xl p-6 mb-4 mx-auto w-fit">
                         <item.icon size={32} className="text-[#57bb5b]" />
@@ -280,9 +280,9 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <motion.h2
             className="text-4xl md:text-6xl font-bold text-center mb-20 text-black"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.6 }}
           >
             Our <span className="text-[#57bb5b]">Values</span>
           </motion.h2>
@@ -292,9 +292,9 @@ export default function About() {
               <motion.div
                 key={value.title}
                 className="bg-linear-to-br from-white to-gray-50 rounded-3xl p-8 hover:from-[#57bb5b]/5 hover:to-[#57bb5b]/10 transition-all duration-500 border-2 border-gray-100 hover:border-[#57bb5b]/30 shadow-lg hover:shadow-xl"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02, y: -5 }}
               >
                 <div className="bg-linear-to-br from-[#57bb5b] to-[#4a9e4c] rounded-2xl p-4 w-fit mb-6 shadow-md">
@@ -318,9 +318,9 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <motion.h2
             className="text-4xl md:text-6xl font-bold text-center mb-20"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isStatsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.6 }}
           >
             Making an <span className="text-[#57bb5b]">Impact</span>
           </motion.h2>
@@ -330,9 +330,9 @@ export default function About() {
               <motion.div
                 key={stat.label}
                 className="text-center"
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={isStatsInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isStatsInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="text-4xl md:text-6xl font-bold text-[#57bb5b] mb-4">
                   {stat.number}
@@ -350,18 +350,18 @@ export default function About() {
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
             className="text-4xl md:text-6xl font-bold mb-8"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
             Ready to join the conversation?
           </motion.h2>
           <motion.p
             className="text-xl mb-12 opacity-70"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 0.7, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
             Be part of the future of authentic digital communication. Join
@@ -372,9 +372,9 @@ export default function About() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-[#57bb5b] text-white px-12 py-4 rounded-full font-semibold text-lg hover:bg-[#4a9e4c] transition-all duration-300 shadow-lg inline-block"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
             Get Started Today

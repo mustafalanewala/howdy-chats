@@ -95,7 +95,7 @@ export default function BlogSection() {
           className="text-5xl md:text-7xl font-bold uppercase mb-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           Blog <span className="text-[#57bb5b]">Section</span>
         </motion.h2>
@@ -103,7 +103,7 @@ export default function BlogSection() {
           className="text-xl text-gray-600 mb-16 max-w-2xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           Discover insights and stories from the{" "}
           <span className="italic">Howdy</span> community

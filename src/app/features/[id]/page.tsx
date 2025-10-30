@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 interface Feature {
   id: string;
@@ -66,6 +68,8 @@ export default function FeaturePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Navbar />
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -81,7 +85,7 @@ export default function FeaturePage() {
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             className="text-6xl md:text-8xl font-bold mb-6"
           >
             {feature.title}
@@ -89,7 +93,7 @@ export default function FeaturePage() {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-gray-200"
           >
             {feature.subtitle}
@@ -170,6 +174,8 @@ export default function FeaturePage() {
           </motion.button>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

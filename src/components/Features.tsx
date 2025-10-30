@@ -119,7 +119,7 @@ export default function FeaturesSection() {
       gsap.from(".features-title", {
         y: 50,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -142,7 +142,7 @@ export default function FeaturesSection() {
       gsap.from(".feature-item", {
         y: 40,
         opacity: 0,
-        duration: 0.5,
+        duration: 0.6,
         stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
@@ -155,7 +155,7 @@ export default function FeaturesSection() {
       gsap.from(".feature-text", {
         y: 20,
         opacity: 0,
-        duration: 0.4,
+        duration: 0.6,
         stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
@@ -218,10 +218,10 @@ export default function FeaturesSection() {
             {features
               .filter((_, index) => index % 2 === 0)
               .map((feature, index) => (
-                <div key={feature.id} className="feature-item space-y-6">
+                <div key={feature.id} className="feature-item">
                   <div className="relative">
                     <div
-                      className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover group"
+                      className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-md image-hover group"
                       style={{ aspectRatio: index === 1 ? "5/4" : "2.5/3.5" }}
                     >
                       <img
@@ -260,10 +260,10 @@ export default function FeaturesSection() {
             {features
               .filter((_, index) => index % 2 === 1)
               .map((feature, index) => (
-                <div key={feature.id} className="feature-item space-y-6">
+                <div key={feature.id} className="feature-item">
                   <div className="relative">
                     <div
-                      className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-lg image-hover group"
+                      className="feature-image relative rounded-xl overflow-hidden cursor-pointer max-w-md image-hover group"
                       style={{ aspectRatio: index === 3 ? "5/4" : "2.5/3.5" }}
                     >
                       <img

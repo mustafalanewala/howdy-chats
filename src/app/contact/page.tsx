@@ -142,24 +142,24 @@ export default function Contact() {
 
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <motion.h1
               className="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 leading-tight"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1.2, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               Get in <span className="text-[#57bb5b] italic">Touch</span>
             </motion.h1>
 
             <motion.p
               className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto mb-12"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
               Have questions? Want to join our mission? We'd love to hear from
               you. Reach out and let's start an authentic conversation.
@@ -167,9 +167,9 @@ export default function Contact() {
 
             <motion.div
               className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.9 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
               <motion.a
                 href="#contact-form"
@@ -199,9 +199,9 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto">
           <motion.h2
             className="text-4xl md:text-6xl font-bold text-center mb-20 text-black"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isInfoInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.6 }}
           >
             Multiple Ways to <span className="text-[#57bb5b]">Connect</span>
           </motion.h2>
@@ -212,9 +212,9 @@ export default function Contact() {
                 key={method.title}
                 href={method.action}
                 className="bg-linear-to-br from-white to-gray-50 rounded-3xl p-8 hover:from-[#57bb5b]/5 hover:to-[#57bb5b]/10 transition-all duration-500 border-2 border-gray-100 hover:border-[#57bb5b]/30 shadow-lg hover:shadow-xl group text-center"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={isInfoInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02, y: -5 }}
               >
                 <div className="bg-linear-to-br from-[#57bb5b] to-[#4a9e4c] rounded-2xl p-4 w-fit mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-md">
@@ -240,9 +240,9 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto">
           <motion.h2
             className="text-4xl md:text-6xl font-bold text-center mb-20"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isFormInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.6 }}
           >
             Send us a <span className="text-[#57bb5b]">Message</span>
           </motion.h2>
@@ -250,15 +250,15 @@ export default function Contact() {
           <motion.form
             onSubmit={handleSubmit}
             className="space-y-8"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={isFormInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={isFormInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isFormInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <label
                   htmlFor="name"
@@ -279,9 +279,9 @@ export default function Contact() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={isFormInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isFormInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.3 }}
               >
                 <label
                   htmlFor="email"
@@ -305,7 +305,7 @@ export default function Contact() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isFormInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
               <label
                 htmlFor="subject"
@@ -333,7 +333,7 @@ export default function Contact() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isFormInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
             >
               <label
                 htmlFor="message"
@@ -357,7 +357,7 @@ export default function Contact() {
               className="text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={isFormInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
               {isSubmitted ? (
                 <motion.div
@@ -389,9 +389,9 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto">
           <motion.h2
             className="text-4xl md:text-6xl font-bold text-center mb-20 text-black"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isFaqInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.6 }}
           >
             Frequently Asked Questions
           </motion.h2>

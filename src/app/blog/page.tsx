@@ -11,7 +11,7 @@ export default function Blog() {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="max-w-7xl mx-auto px-6 py-20"
         >
           <h1 className="text-6xl md:text-8xl font-bold mb-8">

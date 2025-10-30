@@ -25,7 +25,7 @@ export default function Hero() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1.2,
+        duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94],
       },
     });
@@ -103,7 +103,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
             className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-8"
           >
             Howdy Chats is an all-in-one platform that brings your social,
