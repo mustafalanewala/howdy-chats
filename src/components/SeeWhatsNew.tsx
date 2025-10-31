@@ -10,51 +10,46 @@ export default function SeeWhatsNew() {
   const items = [
     {
       id: 1,
-      content:
-        "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg",
+      title: "Real Time Translation",
+      description:
+        "Instant language translation for seamless global communication",
+      icon: "🌐",
       color: "#57bb5b",
     },
     {
       id: 2,
-      content:
-        "https://images.pexels.com/photos/1983032/pexels-photo-1983032.jpeg",
+      title: "Planner",
+      description: "Smart scheduling and event planning made easy",
+      icon: "📅",
       color: "#ff6b6b",
     },
     {
       id: 3,
-      content:
-        "https://images.pexels.com/photos/1420709/pexels-photo-1420709.jpeg",
+      title: "To-do Tasks",
+      description: "Organize and track your daily tasks efficiently",
+      icon: "✅",
       color: "#4ecdc4",
     },
     {
       id: 4,
-      content:
-        "https://images.pexels.com/photos/1181233/pexels-photo-1181233.jpeg",
+      title: "Reminders",
+      description: "Never miss important events and deadlines",
+      icon: "🔔",
       color: "#45b7d1",
     },
     {
       id: 5,
-      content:
-        "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+      title: "Add to Notes",
+      description: "Save important information for later reference",
+      icon: "📝",
       color: "#f7b731",
     },
     {
       id: 6,
-      content:
-        "https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg",
+      title: "Music - Real Time",
+      description: "Share and enjoy music together in real-time",
+      icon: "🎵",
       color: "#9b59b6",
-    },
-    {
-      id: 7,
-      content:
-        "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg",
-      color: "#e74c3c",
-    },
-    {
-      id: 8,
-      content:
-        "https://images.pexels.com/photos/1181243/pexels-photo-1181243.jpeg",
-      color: "#f39c12",
     },
   ];
 
@@ -95,39 +90,41 @@ export default function SeeWhatsNew() {
               width: "200%", // Double width for seamless loop
             }}
           >
-            {/* First set of 8 items (4 per row) */}
+            {/* First set of 6 items (3 per row, 2 rows) */}
             <div className="w-1/2 px-4">
-              <div className="grid grid-cols-4 gap-4 mb-4">
-                {items.slice(0, 4).map((item) => (
+              <div className="grid grid-cols-3 gap-6 mb-6">
+                {items.slice(0, 3).map((item) => (
                   <div
                     key={item.id}
-                    className="aspect-square rounded-xl border-2 border-white/20 bg-black/20 backdrop-blur-sm flex items-center justify-center hover:border-white hover:bg-black/30 transition-all duration-300 cursor-pointer group"
+                    className="aspect-square rounded-xl border-2 border-white/20 bg-black/20 backdrop-blur-sm flex flex-col items-center justify-center p-4 transition-all duration-300 text-center"
                     style={{
                       background: `linear-gradient(135deg, ${item.color}10 0%, transparent 50%)`,
                     }}
                   >
-                    <img
-                      src={item.content}
-                      alt={`Feature ${item.id}`}
-                      className="w-full h-full object-cover rounded-lg transition-transform duration-300"
-                    />
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-white/80 leading-tight">
+                      {item.description}
+                    </p>
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-4 gap-4">
-                {items.slice(4, 8).map((item) => (
+              <div className="grid grid-cols-3 gap-6">
+                {items.slice(3, 6).map((item) => (
                   <div
                     key={item.id}
-                    className="aspect-square rounded-xl border-2 border-white/20 bg-black/20 backdrop-blur-sm flex items-center justify-center hover:border-white hover:bg-black/30 transition-all duration-300 cursor-pointer group"
+                    className="aspect-square rounded-xl border-2 border-white/20 bg-black/20 backdrop-blur-sm flex flex-col items-center justify-center p-4 transition-all duration-300 text-center"
                     style={{
                       background: `linear-gradient(135deg, ${item.color}10 0%, transparent 50%)`,
                     }}
                   >
-                    <img
-                      src={item.content}
-                      alt={`Feature ${item.id}`}
-                      className="w-full h-full object-cover rounded-lg transition-transform duration-300"
-                    />
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-white/80 leading-tight">
+                      {item.description}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -135,37 +132,39 @@ export default function SeeWhatsNew() {
 
             {/* Duplicate set for seamless loop */}
             <div className="w-1/2 px-4">
-              <div className="grid grid-cols-4 gap-4 mb-4">
-                {items.slice(0, 4).map((item) => (
+              <div className="grid grid-cols-3 gap-6 mb-6">
+                {items.slice(0, 3).map((item) => (
                   <div
                     key={`duplicate-${item.id}`}
-                    className="aspect-square rounded-xl border-2 border-white/20 bg-black/20 backdrop-blur-sm flex items-center justify-center hover:border-white hover:bg-black/30 transition-all duration-300 cursor-pointer group"
+                    className="aspect-square rounded-xl border-2 border-white/20 bg-black/20 backdrop-blur-sm flex flex-col items-center justify-center p-4 transition-all duration-300 text-center"
                     style={{
                       background: `linear-gradient(135deg, ${item.color}10 0%, transparent 50%)`,
                     }}
                   >
-                    <img
-                      src={item.content}
-                      alt={`Feature ${item.id}`}
-                      className="w-full h-full object-cover rounded-lg transition-transform duration-300"
-                    />
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-white/80 leading-tight">
+                      {item.description}
+                    </p>
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-4 gap-4">
-                {items.slice(4, 8).map((item) => (
+              <div className="grid grid-cols-3 gap-6">
+                {items.slice(3, 6).map((item) => (
                   <div
                     key={`duplicate-${item.id}`}
-                    className="aspect-square rounded-xl border-2 border-white/20 bg-black/20 backdrop-blur-sm flex items-center justify-center hover:border-white hover:bg-black/30 transition-all duration-300 cursor-pointer group"
+                    className="aspect-square rounded-xl border-2 border-white/20 bg-black/20 backdrop-blur-sm flex flex-col items-center justify-center p-4 transition-all duration-300 text-center"
                     style={{
                       background: `linear-gradient(135deg, ${item.color}10 0%, transparent 50%)`,
                     }}
                   >
-                    <img
-                      src={item.content}
-                      alt={`Feature ${item.id}`}
-                      className="w-full h-full object-cover rounded-lg transition-transform duration-300"
-                    />
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-white/80 leading-tight">
+                      {item.description}
+                    </p>
                   </div>
                 ))}
               </div>

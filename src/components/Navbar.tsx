@@ -47,10 +47,9 @@ export default function Navbar() {
   }, [isHamburgerOpen, isFeaturesDropdownOpen]);
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "News", href: "/news" },
-    { name: "Contact", href: "/contact" },
+    { name: "Features", href: "/features" },
+    { name: "Blogs", href: "/blogs" },
+    { name: "Apps", href: "/apps" },
   ];
 
   const featuresDropdownItems = [
@@ -64,11 +63,12 @@ export default function Navbar() {
   ];
 
   const hamburgerItems = [
-    { name: "Blogs", href: "/blogs" },
-    { name: "Developers", href: "/developers" },
+    { name: "Home", href: "/" },
+    { name: "About us", href: "/about" },
+    { name: "News & Events", href: "/news" },
     { name: "Creators", href: "/creators" },
     { name: "Business", href: "/business" },
-    { name: "Careers", href: "/careers" },
+    { name: "Help Centre", href: "/help" },
   ];
 
   const menuVariants = {
@@ -141,27 +141,12 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-6">
-              {/* Home and About */}
-              {navItems.slice(0, 2).map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                  className="relative text-white hover:text-[#57bb5b] transition-colors duration-300 font-medium group"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#57bb5b] transition-all duration-300 group-hover:w-full"></span>
-                </motion.a>
-              ))}
-
               {/* Features Dropdown */}
               <div className="relative features-dropdown">
                 <motion.button
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
+                  transition={{ delay: 0.3 }}
                   onClick={() =>
                     setIsFeaturesDropdownOpen(!isFeaturesDropdownOpen)
                   }
@@ -201,14 +186,14 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
 
-              {/* News and Contact */}
-              {navItems.slice(2).map((item, index) => (
+              {/* Blogs and Apps */}
+              {navItems.slice(1).map((item, index) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: (index + 4) * 0.1 + 0.3 }}
+                  transition={{ delay: (index + 1) * 0.1 + 0.3 }}
                   className="relative text-white hover:text-[#57bb5b] transition-colors duration-300 font-medium group"
                 >
                   {item.name}
@@ -267,19 +252,6 @@ export default function Navbar() {
             >
               <div className="max-w-7xl mx-auto px-6 py-6">
                 <div className="flex flex-col space-y-6">
-                  {/* Home and About */}
-                  {navItems.slice(0, 2).map((item) => (
-                    <motion.a
-                      key={item.name}
-                      href={item.href}
-                      variants={itemVariants}
-                      className="text-white hover:text-[#57bb5b] transition-colors duration-300 font-medium text-lg"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.name}
-                    </motion.a>
-                  ))}
-
                   {/* Mobile Features Dropdown */}
                   <div className="space-y-4">
                     <motion.button
@@ -325,8 +297,8 @@ export default function Navbar() {
                     </AnimatePresence>
                   </div>
 
-                  {/* News and Contact */}
-                  {navItems.slice(2).map((item) => (
+                  {/* Blogs and Apps */}
+                  {navItems.slice(1).map((item) => (
                     <motion.a
                       key={item.name}
                       href={item.href}

@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import AboutHowdy from "../components/AboutHowdy";
 import SeeWhatsNew from "../components/SeeWhatsNew";
 import Features from "../components/Features";
 import Philosophy from "../components/Philosophy";
@@ -36,7 +35,6 @@ export default function Home() {
       <CustomCursor mousePosition={mousePosition} />
       <Navbar />
       <Hero />
-      <AboutHowdy />
       <SeeWhatsNew />
       <Features />
       <Philosophy />

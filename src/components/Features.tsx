@@ -20,16 +20,6 @@ const features = [
     color: "#57bb5b",
   },
   {
-    id: "direct-messages",
-    title: "Direct Messages",
-    subtitle: "From Posts & Reels",
-    description:
-      "Send private messages straight from posts, reels, or status updates.",
-    shortDesc: "Private messaging from any content",
-    image: "https://images.pexels.com/photos/1983032/pexels-photo-1983032.jpeg",
-    color: "#ff6b6b",
-  },
-  {
     id: "channels",
     title: "Reach Your Followers",
     subtitle: "Channels",
@@ -50,16 +40,6 @@ const features = [
     color: "#45b7d1",
   },
   {
-    id: "profile",
-    title: "Make Your Profile Yours",
-    subtitle: "Profile",
-    description:
-      "Show off your style with bio, photos, music, links, and highlights.",
-    shortDesc: "Customize your personal brand",
-    image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
-    color: "#f7b731",
-  },
-  {
     id: "shots",
     title: "Create & Remix Videos",
     subtitle: "Shots",
@@ -70,16 +50,6 @@ const features = [
     color: "#ff6b6b",
   },
   {
-    id: "discover",
-    title: "Explore & Stay Updated",
-    subtitle: "iFeed & Discover",
-    description:
-      "Discover trending posts, reels, events, and content from your network.",
-    shortDesc: "Personalized content discovery",
-    image: "https://images.pexels.com/photos/1420709/pexels-photo-1420709.jpeg",
-    color: "#4ecdc4",
-  },
-  {
     id: "planner",
     title: "Plan Your Day",
     subtitle: "Planner",
@@ -87,26 +57,6 @@ const features = [
     shortDesc: "Smart scheduling and organization",
     image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
     color: "#f7b731",
-  },
-  {
-    id: "creators",
-    title: "Grow as a Creator",
-    subtitle: "For Creators",
-    description:
-      "Reach more people, track engagement, and grow your audience effortlessly.",
-    shortDesc: "Creator tools and analytics",
-    image: "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg",
-    color: "#57bb5b",
-  },
-  {
-    id: "business",
-    title: "Grow Your Business",
-    subtitle: "For Business",
-    description:
-      "Promote your brand, connect with customers, and measure results easily.",
-    shortDesc: "Business promotion and analytics",
-    image: "https://images.pexels.com/photos/1181233/pexels-photo-1181233.jpeg",
-    color: "#45b7d1",
   },
 ];
 
